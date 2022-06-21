@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import CognitoProvider from "next-auth/providers/cognito";
 import NextAuth from "next-auth";
 
@@ -7,6 +6,7 @@ export default NextAuth({
   secret: `${process.env.SECRET}`,
   providers: [
     CognitoProvider({
+      idToken: true,
       clientId: `${process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID}`,
       clientSecret: `${process.env.COGNITO_CLIENT_SECRET}`,
       issuer: `${process.env.COGNITO_ISSUER}`,
